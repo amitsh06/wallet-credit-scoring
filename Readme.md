@@ -37,15 +37,16 @@ Traditional credit scoring is not feasible in DeFi due to the pseudonymous natur
 
 ### Formula
 
-$$
-\text{score} = 500 \\
-\text{score} += 200 \times \text{responsible\_ratio} \\
-\text{score} -= 300 \times \text{liquidation\_ratio} \\
-\text{score} -= 100 \times \text{risky\_ratio} \\
-\text{score} += 0.00001 \times \text{deposit\_amt} \\
-\text{score} -= 0.00001 \times \text{borrow\_amt} \\
-\text{score} = \text{clip}(\text{score}, 0, 1000)
-$$
+```
+score = 500
+score += 200 * responsible_ratio
+score -= 300 * liquidation_ratio
+score -= 100 * risky_ratio
+score += 0.00001 * deposit_amt
+score -= 0.00001 * borrow_amt
+score = clip(score, 0, 1000)
+```
+
 
 - All ratios are relative to the total number of transactions for the wallet.
 - Final score is clipped between 0 and 1000.
